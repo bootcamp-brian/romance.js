@@ -11,8 +11,6 @@ function parseText(text) {
     // return arr;
 }
 
-console.log(parseText(text))
-
 function generateWordPairs(text) {
     //create array of words from given text (removing capitalization and punctuation)
     const keys = parseText(text);
@@ -34,9 +32,6 @@ function generateWordPairs(text) {
     }
     return wordPairs;
 }
-
-let wordPairs = generateWordPairs(text);
-console.log(wordPairs);
     
 function writeLine(markovChain, n) {
     let poemLine = '';
@@ -78,8 +73,6 @@ function writeLine(markovChain, n) {
     return poemLine;
 }
 
-console.log((writeLine(wordPairs, 7)) + '\n');
-
 function generatePoem(wordCorpus, numLines) {
     //creates a Markov Chain object named wordPairs from the given wordCorpus
     let wordPairs = generateWordPairs(wordCorpus);
@@ -98,6 +91,10 @@ function generatePoem(wordCorpus, numLines) {
     return poem
 }
 
-debugger;
+// some tests
+console.log(parseText(text))
+let wordPairs = generateWordPairs(text);
+console.log(wordPairs);
+console.log((writeLine(wordPairs, 7)) + '\n');
 console.log((generatePoem(text, 5)) + '\n');
 console.log(generatePoem('This is some random text to do some testing of this poem generator. Is it okay to add other punctuations like this:;!?', 7));
