@@ -28,7 +28,7 @@ function generateWordPairs(text) {
         let currentKey = keys[i];
         let value = keys[i + 1];
         if (wordPairs[currentKey]) {
-            wordPairs[currentKey].push(value)
+            wordPairs[currentKey].push(value);
         } else {
             wordPairs[currentKey] = [value];
         }
@@ -51,7 +51,7 @@ function writeLine(markovChain, n) {
     function randomize(word) {
         let randomIndex;
         if (markovChain[word]) {
-            randomIndex = Math.floor(Math.random() * markovChain[word].length)
+            randomIndex = Math.floor(Math.random() * markovChain[word].length);
             return markovChain[word][randomIndex];
         } else {
             let newWord = keys[Math.floor(Math.random() * (keys.length))];
@@ -61,7 +61,7 @@ function writeLine(markovChain, n) {
             // for loop alternative:
             // for (let i = newWord; i === word; i = keys[Math.floor(Math.random() * (keys.length))]) {}
             // the while loop felt cleaner in this case
-            return newWord
+            return newWord;
         }
     }
 
@@ -70,9 +70,9 @@ function writeLine(markovChain, n) {
     // then changes the currentKey to the chosen word,
     // and repeats n number of times to create a poemLine with n number of words
     for (let i = 0; i < n; i++) {
-        let currentWord = randomize(currentKey)
+        let currentWord = randomize(currentKey);
         if (i === n - 1) {
-            poemLine += currentWord
+            poemLine += currentWord;
         } else {
             poemLine += currentWord + ' ';
         }
@@ -99,11 +99,11 @@ function generatePoem(wordCorpus, numLines) {
             poem += writeLine(wordPairs, numWords) + '\n';
         }
     }
-    return poem
+    return poem;
 }
 
 // some tests
-console.log(parseText(text))
+console.log(parseText(text));
 let wordPairs = generateWordPairs(text);
 console.log(wordPairs);
 console.log((writeLine(wordPairs, 7)) + '\n');
